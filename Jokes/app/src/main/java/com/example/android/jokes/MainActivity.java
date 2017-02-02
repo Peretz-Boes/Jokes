@@ -1,13 +1,13 @@
 package com.example.android.jokes;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
+import com.example.android.jokeslibrary.JokeActivity;
 import com.udacity.example.jokes.Joker;
 
 public class MainActivity extends ActionBarActivity {
