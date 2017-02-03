@@ -1,6 +1,7 @@
 package com.udacity.example.jokes;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Peretz on 2016-03-29.
@@ -58,6 +59,49 @@ public class Joker {
         jokes.add("Q: What kind of keys do kids like to carry? A: Cookies");
         jokes.add("Q: Why don't they serve chocolate in prison? A: Because it makes you break out.");
         jokes.add("Q: What cheese is made backwards? A: Edam.");
-        return "This is totally a funny joke";
+        jokes.add("Q: How can you tell the ocean is friendly? A: It waves.");
+        jokes.add("Q: What kind of hair do oceans have? A: Wavy");
+        jokes.add("Q: What did Mars say to Saturn? A: Give me a ring sometime.");
+        jokes.add("Q: What did the big flower say to the small flower? A: What's up Bud?");
+        jokes.add("Q: Where does seaweed go to look for a job? A: The kelp wanted section.");
+        jokes.add("Q: When is the moon the heaviest? A: When it's full");
+        jokes.add("Q: What type of songs do the planets sing? A: Nep-tunes");
+        jokes.add("Q: What kind of flower grows on your face? A: Tulips");
+        jokes.add("Q: What washes up on very small beaches? A: Microwaves");
+        jokes.add("Q: What do you call an attractive volcano? A: Lava-ble");
+        jokes.add("Q: What did the big flower say to the little flower? A: Hey, bud.");
+        jokes.add("Q: Why did the policeman go to the baseball game? A: He heard someone had stolen a base.");
+        jokes.add("Q: Why did the book join the police? A: He wanted to go undercover.");
+        jokes.add("Q: Why was there thunder and lightning in the lab? A: The scientists were brainstorming.");
+        jokes.add("Q: What do lawyers wear to court? A: Lawsuits");
+        jokes.add("Q: What did the lawyer name his daughter? A: Sue");
+        jokes.add("Q: What kind of car does a farmer drive? A: A cornvertable");
+        jokes.add("Q: What do you call a flying police officer? A: A helicopper");
+        jokes.add("Q: How did the farmer mend his pants? A: With cabbage patches");
+        jokes.add("Q: Why did the lazy man want a job in a bakery? A: So he could loaf around");
+        jokes.add("Q: Why did the farmer ride his horse to town? A: It was too heavy to carry.");
+        jokes.add("Q: What do you call a happy cowboy? A: A jolly rancher");
+        jokes.add(" Q: What did the ground say to the earthquake? A: You crack me up.");
+        jokes.add("Q: Why did the music teacher need a ladder? A: To reach the high notes");
+        jokes.add("Q: What's the worst thing you're likely to find in the school cafeteria? A: The Food");
+        jokes.add("Q: What kind of plates do they use on Venus? A: Flying saucers");
+        jokes.add("Q: Why did nose not want to go to school? A: He was tired of getting picked on");
+        jokes.add("Q: How do you get straight A's? A: By using a ruler");
+        jokes.add("Q: What did the pen say to the pencil? A: So, what's your point?");
+        jokes.add("Q: Why did the kid study in the airplane? A: Because he wanted a higher education");
+        jokes.add("Q: How did the music teacher get locked in the classroom? A: His keys were inside the piano.");
+        jokes.add("Q: What object is king of the classroom? A: The ruler");
+        jokes.add("Q: When do astronauts eat? A: At launch time");
+        jokes.add("Q: What did the pencil sharpener say to the pencil? A: Stop going in circles and get to the point");
+        jokes.add("Q: How does the barber cut the moon's hair? A: E-clipse it.");
+        jokes.add("Q: What happened when the wheel was invented? A: It caused a revolution.");
+        jokes.add("Q: What do librarians take with them when they go fishing? A: Bookworms.");
+        jokes.add("Q: What is the world's tallest building? A: The library because it has the most stories");
+        jokes.add("Q: What vegetables to librarians like? A: Quiet peas");
+        jokes.add("Q: Why did the clock in the cafeteria run slow? A: It always went back four seconds.");
+        jokes.add("Q: Why didn't the sun go to college? A: Because it already had a million degrees");
+        Random random=new Random();
+        int jokesArrayListIndex=random.nextInt(jokes.size());
+        return jokes.get(jokesArrayListIndex);
     }
 }
