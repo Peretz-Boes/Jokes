@@ -10,6 +10,7 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -25,6 +26,9 @@ android {
             applicationId "com.example.android.jokes.paid"
         }
     }
+    dexOptions{
+        javaMaxHeapSize "4g"
+    }
 }
 
 dependencies {
@@ -35,6 +39,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
     compile 'com.android.support:design:25.1.0'
     compile 'com.google.android.gms:play-services:10.0.1'
+    compile 'com.android.support:multidex:1.0.1'
     compile project(path: ':backend', configuration: 'android-endpoints')
 
 }
