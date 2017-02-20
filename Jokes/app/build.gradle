@@ -18,17 +18,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors{
-        free{
+    productFlavors {
+        free {
             applicationId "com.example.android.jokes.free"
         }
-        paid{
+        paid {
             applicationId "com.example.android.jokes.paid"
         }
     }
-    dexOptions{
+    dexOptions {
         javaMaxHeapSize "4g"
     }
+    sourceSets { free { res.srcDirs = ['src/free/res', 'src/free/res/'] } }
 }
 
 dependencies {

@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.android.jokeslibrary.JokeActivity;
-import com.udacity.example.jokes.Joker;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,10 +42,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view){
-        Joker joker=new Joker();
-        Intent intent=new Intent(MainActivity.this,JokeActivity.class);
-        intent.putExtra("parameter name",joker.getJoke());
-        startActivity(intent);
+        try {
+            String joke=new EndpointsAsyncTask().execute().get();
+            Intent intent=new Intent(MainActivity.this, JokeActivity.class);
+            intent.putExtra("KEY_JOKE",joke);
+            startActivity(intent);
+        }catch (Exception exception){
+            Toast.makeText(getApplicationContext(), R.string.joke_error_message,Toast.LENGTH_LONG).show();
+        }
     }
 
 }

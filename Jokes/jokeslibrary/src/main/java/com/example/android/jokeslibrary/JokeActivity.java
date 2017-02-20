@@ -27,7 +27,7 @@ public class JokeActivity extends AppCompatActivity {
         });
         //Get the intent that started us to find the parameter(extra)
         Intent intent = getIntent();
-        String joke = intent.getStringExtra("parameter name");
+        String joke = intent.getStringExtra("KEY_JOKE");
         //Display the value to the screen
         TextView textView = (TextView) findViewById(R.id.joke_text_view);
         textView.setText(joke);
