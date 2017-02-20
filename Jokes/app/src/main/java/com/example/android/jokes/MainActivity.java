@@ -6,18 +6,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.android.jokeslibrary.JokeActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements EndpointsAsyncTask.JokeCallbackInterface {
+
+    ProgressBar mProgressBar;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initProgressBar();
     }
 
+    private void initProgressBar(){
+        mProgressBar=(ProgressBar)findViewById(R.id.joke_loading_progress_bar);
+        hideProgressBar();
+    }
+
+    private void showProgressBar(){
+        mProgressBar.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar(){
+        mProgressBar.setVisibility(View.GONE);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,13 +61,23 @@ public class MainActivity extends AppCompatActivity {
 
     public void tellJoke(View view){
         try {
-            String joke=new EndpointsAsyncTask().execute().get();
-            Intent intent=new Intent(MainActivity.this, JokeActivity.class);
-            intent.putExtra("KEY_JOKE",joke);
-            startActivity(intent);
+            showProgressBar();
+            new EndpointsAsyncTask(this).execute();
+            textView=(TextView)findViewById(R.id.loading_text_view);
+            textView.setText(R.string.loading_joke_message);
         }catch (Exception exception){
+            hideProgressBar();
+            textView.setText("");
             Toast.makeText(getApplicationContext(), R.string.joke_error_message,Toast.LENGTH_LONG).show();
         }
     }
 
+    @Override
+    public void done(String joke) {
+        hideProgressBar();
+        textView.setText("");
+        Intent intent=new Intent(MainActivity.this, JokeActivity.class);
+        intent.putExtra("KEY_JOKE",joke);
+        startActivity(intent);
+    }
 }

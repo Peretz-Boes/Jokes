@@ -17,7 +17,15 @@ import java.io.IOException;
  */
 public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
     private static MyApi myApiService = null;
-    private Context context;
+    private JokeCallbackInterface callback;
+
+    public interface JokeCallbackInterface{
+        void done(String joke);
+    }
+
+    public EndpointsAsyncTask(JokeCallbackInterface callback){
+        this.callback=callback;
+    }
 
     @Override
     protected String doInBackground(Pair<Context, String>... params) {
