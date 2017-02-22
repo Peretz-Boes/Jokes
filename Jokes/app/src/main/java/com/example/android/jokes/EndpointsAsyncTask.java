@@ -56,6 +56,6 @@ public class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, S
 
     @Override
     protected void onPostExecute(String result) {
-
+        callback.done(result);
     }
 }

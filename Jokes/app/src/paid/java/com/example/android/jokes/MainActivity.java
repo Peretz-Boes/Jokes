@@ -3,6 +3,7 @@ package com.example.android.jokes;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
 
     ProgressBar mProgressBar;
     TextView textView;
+    public static final String LOG_TAG=MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
         try {
             showProgressBar();
             new EndpointsAsyncTask(this).execute();
+            Log.d(LOG_TAG,"Getting joke from Google Cloud Endpoints server");
             textView=(TextView)findViewById(R.id.loading_text_view);
             textView.setText(R.string.loading_joke_message);
         }catch (Exception exception){
@@ -74,6 +77,7 @@ public class MainActivity extends AppCompatActivity implements EndpointsAsyncTas
 
     @Override
     public void done(String joke) {
+        Log.d(LOG_TAG,"Done getting joke from Google Cloud Endpoints server");
         hideProgressBar();
         textView.setText("");
         Intent intent=new Intent(MainActivity.this, JokeActivity.class);
