@@ -24,7 +24,7 @@ import static org.hamcrest.Matchers.notNullValue;
  */
 
 @RunWith(AndroidJUnit4.class)
-public class EndpointsAsyncTaskTest {
+public class EndpointsAsyncTaskTest{
 
     @Rule
     public IntentsTestRule<MainActivity> rule=new IntentsTestRule<>(MainActivity.class);
